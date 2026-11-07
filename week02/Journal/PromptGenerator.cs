@@ -1,17 +1,11 @@
 using System;
-using System.Globalization;
-using System.Net.Security;
+using System.Collections.Generic;
 public class PromptGenerator
-
 {
+    public static List<string> _prompts = new List<string>();
 
-    public List<string> _prompts = new List<string>();
-
-
-    public string GenRandomPrompt()
+    public static string GetRandomPrompt()
     {
-
-        string empty = "";
-        return empty;
+        return "What was the best part of your day?";
     }
 }
