@@ -21,12 +21,21 @@ public class Journal
 
     public void LoadFromFile(string file)
     {
-        string filename = file;
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        // List<Entry> entries = new List<Entry>();
+        // string filename = file;
+        string[] lines = System.IO.File.ReadAllLines(file);
         foreach (string line in lines)
         {
-            Console.WriteLine(line);
+            // Console.WriteLine(line);
+            string[] parts = line.Split("|");
+            Entry newEntry = new Entry();
+            newEntry._date = parts[0];
+            newEntry._prompt = parts[1];
+            newEntry._entry = parts[2];
+            _entries.Add(newEntry);
         }
+        // Console.WriteLine(_entries);
+        DisplayEntries();
     }
 
     public void SaveToFile(string file)

@@ -1,3 +1,6 @@
+// To exceed expectations, I added a TimeLeft class, motivate and
+// remind the user of the sacred purpose of keeping a journal.
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -6,7 +9,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Entry entry1 = new Entry();
         Journal journal = new Journal();
 
         Console.WriteLine("Welcome to the Journal Program.");
@@ -14,7 +16,7 @@ class Program
         int userInt = 0;
         while (userInt != 5)
         {
-
+            Entry entry1 = new Entry();
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
@@ -26,10 +28,13 @@ class Program
 
             if (userInt == 1)
             {
-                Console.WriteLine(entry1._prompt);
+                string ranPrompt = PromptGenerator.GetRandomPrompt();
+                Console.WriteLine(ranPrompt);
+                //Console.WriteLine(entry1._prompt);
+                entry1._prompt = ranPrompt;
                 Console.Write("< ");
                 entry1._entry = Console.ReadLine();
-                Console.WriteLine("an entry is being added...");
+                //Console.WriteLine("an entry is being added...");
                 journal.AddEntry(entry1);
             }
 
@@ -56,7 +61,8 @@ class Program
 
             else
             {
-                Console.WriteLine("Thank you.");
+                TimeLeft timeLeft = new TimeLeft();
+                timeLeft.DisplayTimeLeft();
             }
         }
     }
