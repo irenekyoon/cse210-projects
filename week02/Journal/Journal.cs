@@ -21,12 +21,9 @@ public class Journal
 
     public void LoadFromFile(string file)
     {
-        // List<Entry> entries = new List<Entry>();
-        // string filename = file;
         string[] lines = System.IO.File.ReadAllLines(file);
         foreach (string line in lines)
         {
-            // Console.WriteLine(line);
             string[] parts = line.Split("|");
             Entry newEntry = new Entry();
             newEntry._date = parts[0];
@@ -34,7 +31,7 @@ public class Journal
             newEntry._entry = parts[2];
             _entries.Add(newEntry);
         }
-        // Console.WriteLine(_entries);
+
         DisplayEntries();
     }
 

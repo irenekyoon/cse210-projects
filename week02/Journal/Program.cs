@@ -1,4 +1,4 @@
-// To exceed expectations, I added a TimeLeft class, motivate and
+// To exceed expectations, I added a TimeLeft class, to motivate and
 // remind the user of the sacred purpose of keeping a journal.
 
 using System;
@@ -30,11 +30,9 @@ class Program
             {
                 string ranPrompt = PromptGenerator.GetRandomPrompt();
                 Console.WriteLine(ranPrompt);
-                //Console.WriteLine(entry1._prompt);
                 entry1._prompt = ranPrompt;
                 Console.Write("< ");
                 entry1._entry = Console.ReadLine();
-                //Console.WriteLine("an entry is being added...");
                 journal.AddEntry(entry1);
             }
 
