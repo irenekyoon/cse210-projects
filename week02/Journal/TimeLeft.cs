@@ -2,8 +2,10 @@ using System;
 public class TimeLeft
 
 {
-    public static DateTime endOfYear = DateTime.Parse("12/31/2026");
-    public static TimeSpan timeLeft = DateTime.Now.Subtract(endOfYear);
+    public static DateTime endOfYear = new DateTime(2026, 12, 31);
+    public static DateTime now = DateTime.Now;
+    public static TimeSpan timeLeft = endOfYear.Subtract(now);
+
 
     public void DisplayTimeLeft()
     {
