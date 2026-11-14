@@ -5,22 +5,30 @@ public class Word
     private string _text = "";
     private bool _isHidden;
 
-    Word(string text)
+    public Word(string text)
     {
         _text = text;
         _isHidden = false;
     }
 
+    // public string GetText()
+    // {
+    //     return _text;
+    // }
+    // public void SetText(string text)
+    // {
+    //     _text = text;
+    // }
     public void HideAWord()
     {
         _text = "_______";
-        // _isHidden = true;
+        _isHidden = true;
     }
 
     public void ShowAWord()
     {
         _text = "";
-        // _isHidden = false;
+        _isHidden = false;
     }
 
     public bool IsHidden()
@@ -30,14 +38,14 @@ public class Word
 
     public string GetDisplayText()
     {
-        if (IsHidden() == true)
+        if (_isHidden == false)
         {
-            return "_____";
+            return _text;
         }
 
         else
         {
-            return _text;
+            return "_______";
         }
     }
 

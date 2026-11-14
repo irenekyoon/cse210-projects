@@ -12,7 +12,6 @@ public class Reference
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        // _endVerse = null;
     }
 
     public Reference(string book, int chapter, int startVerse, int endVerse)
@@ -28,7 +27,6 @@ public class Reference
     {
         string refString = $"{_book} {_chapter}:{_verse}";
         return refString;
-
     }
 
     public string GetDisplayVerses()

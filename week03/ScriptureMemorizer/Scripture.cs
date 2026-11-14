@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 
 public class Scripture
 {
@@ -7,39 +7,51 @@ public class Scripture
     private List<Word> _words = new List<Word>();
 
 
-    public Scripture(Reference reference, string text) // reference variable is Reference in lesson
+    public Scripture(Reference reference, string text)
     {
         _reference = reference;
         string textString = text;
 
-        Console.WriteLine(_reference.GetDisplayOneVerse());
         String[] splitText = textString.Split(' ');
-        Console.WriteLine(splitText);
+
+        foreach (string w in splitText)
+        {
+            _words.Add(new Word(w));
+        }
     }
 
     public void HideRandomWords(int numberToHide)
     {
         int n = numberToHide;
+        Random randomGenerator = new Random();
 
-        for (int loops = 0; loops < n; loops++)
+        for (int i = 1; i <= n; i++)
         {
-            Random randomGenerator = new Random();
-            int i = _words.Count;
-            int number = randomGenerator.Next(0, i);
-
+            int number = randomGenerator.Next(0, _words.Count);
+            Console.WriteLine(number);
+            _words[number].HideAWord();
+            _words[number].IsHidden();
         }
-
-
-
     }
 
     public string GetDisplayText()
     {
-        return "";
+        string displayVerse = "";
+        foreach (Word w in _words)
+        {
+            displayVerse += w.GetDisplayText() + " ";
+        }
+        // HideRandomWords(4);
+
+        return displayVerse;
     }
 
     public bool IsCompletelyHidden()
     {
+        foreach (Word w in _words)
+        {
+
+        }
         return true;
     }
 
