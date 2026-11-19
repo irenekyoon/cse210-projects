@@ -11,24 +11,30 @@ public class Word
         _isHidden = false;
     }
 
-    // public string GetText()
-    // {
-    //     return _text;
-    // }
-    // public void SetText(string text)
-    // {
-    //     _text = text;
-    // }
+    public string GetText()
+    {
+        return _text;
+    }
+
     public void HideAWord()
     {
-        _text = "_______";
-        _isHidden = true;
+        IsHidden();
+        String[] letters = _text.Split(' ');
+        foreach (string l in letters)
+        {
+            Console.WriteLine("_");
+        }
+
     }
 
     public void ShowAWord()
     {
-        _text = "";
-        _isHidden = false;
+        Console.WriteLine(_text);
+        // String[] letters = _text.Split(' ');
+        // foreach (string l in letters)
+        // {
+        //     Console.WriteLine(l);
+        // }
     }
 
     public bool IsHidden()
@@ -40,13 +46,13 @@ public class Word
     {
         if (_isHidden == false)
         {
-            return _text;
+            // string display = ShowAWord(); //Error: Cannot implicitly convert type 'void' to 'string'
+            ShowAWord();
         }
-
         else
         {
-            return "_______";
+            HideAWord();
         }
+        return "";
     }
-
 }

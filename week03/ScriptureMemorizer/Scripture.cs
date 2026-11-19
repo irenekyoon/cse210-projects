@@ -22,26 +22,33 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+        // GetDisplayText();
         int n = numberToHide;
-        Random randomGenerator = new Random();
+
 
         for (int i = 1; i <= n; i++)
         {
+            Random randomGenerator = new Random();
             int number = randomGenerator.Next(0, _words.Count);
+            Console.WriteLine("this is a random number");
             Console.WriteLine(number);
-            _words[number].HideAWord();
-            _words[number].IsHidden();
         }
     }
 
     public string GetDisplayText()
     {
+
+        // Word word = new Word(text);
+        // foreach (Word word in _words)
+        // {
+        //     word.GetDisplayText();
+        // }
+        // return "";
         string displayVerse = "";
         foreach (Word w in _words)
         {
             displayVerse += w.GetDisplayText() + " ";
         }
-        // HideRandomWords(4);
 
         return displayVerse;
     }
@@ -50,7 +57,7 @@ public class Scripture
     {
         foreach (Word w in _words)
         {
-
+            w.HideAWord();
         }
         return true;
     }
