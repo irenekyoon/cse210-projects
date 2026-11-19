@@ -22,34 +22,32 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-        // GetDisplayText();
-        int n = numberToHide;
+        int numHide = numberToHide;
+        List<int> ranList = new List<int>();
+        Random random = new Random();
+        int r = 0;
 
-
-        for (int i = 1; i <= n; i++)
+        for (int i = 1; i <= numHide; i++)
         {
-            Random randomGenerator = new Random();
-            int number = randomGenerator.Next(0, _words.Count);
-            Console.WriteLine("this is a random number");
-            Console.WriteLine(number);
+            int ranNum = random.Next(1, _words.Count);
+            ranList.Add(ranNum);
         }
+
+        foreach (Word w in _words)
+            foreach (int k in ranList)
+            {
+                _words[ranList[r]] = w.HideAWord();
+            }
+        GetDisplayText();
     }
 
     public string GetDisplayText()
     {
-
-        // Word word = new Word(text);
-        // foreach (Word word in _words)
-        // {
-        //     word.GetDisplayText();
-        // }
-        // return "";
         string displayVerse = "";
         foreach (Word w in _words)
         {
             displayVerse += w.GetDisplayText() + " ";
         }
-
         return displayVerse;
     }
 
@@ -57,9 +55,8 @@ public class Scripture
     {
         foreach (Word w in _words)
         {
-            w.HideAWord();
+            //is w hidden? if so and all are hidden, 
         }
         return true;
     }
-
 }

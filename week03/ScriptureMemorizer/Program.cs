@@ -12,9 +12,9 @@ class Program
         Console.WriteLine("Outside loop");
         string ref2 = reference2.GetDisplayVerses();
         Console.WriteLine(ref2);
-        // string scrip2 = scripture2.GetDisplayText();
-        Console.Write(scripture2.GetDisplayText());
-
+        string scrip2 = scripture2.GetDisplayText();
+        Console.Write(scrip2);
+        Console.WriteLine();
         Console.WriteLine("Press Enter to continue or type 'quit' to finish.");
 
         while (memorize != "quit")

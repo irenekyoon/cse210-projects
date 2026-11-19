@@ -5,6 +5,10 @@ public class Word
     private string _text = "";
     private bool _isHidden;
 
+    public Word()
+    {
+
+    }
     public Word(string text)
     {
         _text = text;
@@ -19,22 +23,13 @@ public class Word
     public void HideAWord()
     {
         IsHidden();
-        String[] letters = _text.Split(' ');
-        foreach (string l in letters)
-        {
-            Console.WriteLine("_");
-        }
-
+        Console.WriteLine("_");
     }
+
 
     public void ShowAWord()
     {
         Console.WriteLine(_text);
-        // String[] letters = _text.Split(' ');
-        // foreach (string l in letters)
-        // {
-        //     Console.WriteLine(l);
-        // }
     }
 
     public bool IsHidden()
@@ -46,8 +41,7 @@ public class Word
     {
         if (_isHidden == false)
         {
-            // string display = ShowAWord(); //Error: Cannot implicitly convert type 'void' to 'string'
-            ShowAWord();
+            return _text;
         }
         else
         {
