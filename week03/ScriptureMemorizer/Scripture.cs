@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 
 public class Scripture
 {
@@ -22,23 +23,33 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+        //Console.WriteLine(string.Join(",", _words));
         int numHide = numberToHide;
         List<int> ranList = new List<int>();
         Random random = new Random();
-        int r = 0;
-
-        for (int i = 1; i <= numHide; i++)
-        {
-            int ranNum = random.Next(1, _words.Count);
-            ranList.Add(ranNum);
-        }
-
+        int indexWords = 0;
         foreach (Word w in _words)
-            foreach (int k in ranList)
+        {
+            for (int i = 1; i <= numHide; i++)
             {
-                _words[ranList[r]] = w.HideAWord();
+                int ranNum = random.Next(1, _words.Count - 1);
+
+                while (_words[ranNum] != _words[indexWords])
+                {
+                    _words[indexWords].ShowAWord();
+                    if (indexWords < 8)
+                    {
+                        indexWords = indexWords + 1;
+                    }
+                }
+                if (_words[ranNum] == _words[indexWords])
+                {
+                    _words[ranNum].HideAWord();
+                }
+
             }
-        GetDisplayText();
+            break;
+        }
     }
 
     public string GetDisplayText()
