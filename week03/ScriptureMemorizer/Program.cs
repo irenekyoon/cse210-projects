@@ -17,12 +17,11 @@ class Program
       
         Console.WriteLine();
         Console.WriteLine("Press Enter to continue or type 'quit' to finish.");
-
+        
         while (memorize != "quit")
         {
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("Inside loop");
             scripture2.HideRandomWords(3);
 
             Console.WriteLine("Press Enter to continue or type 'quit' to finish.");

@@ -23,7 +23,6 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-        //Console.WriteLine(string.Join(",", _words));
         int numHide = numberToHide;
         List<int> ranList = new List<int>();
         Random random = new Random();
@@ -46,10 +45,10 @@ public class Scripture
                 {
                     _words[ranNum].HideAWord();
                 }
-
             }
             break;
         }
+
     }
 
     public string GetDisplayText()
