@@ -7,7 +7,6 @@ public class Scripture
     private Reference _reference;
     private List<Word> _words = new List<Word>();
 
-
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
@@ -31,22 +30,31 @@ public class Scripture
         {
             for (int i = 1; i <= numHide; i++)
             {
-                int ranNum = random.Next(1, _words.Count - 1);
-
+                int ranNum = random.Next(1, _words.Count);
                 while (_words[ranNum] != _words[indexWords])
                 {
                     _words[indexWords].ShowAWord();
+
                     if (indexWords < 8)
                     {
                         indexWords = indexWords + 1;
                     }
+                    else if (indexWords == 8)
+                    {
+                        break;
+                    }
                 }
+
                 if (_words[ranNum] == _words[indexWords])
                 {
                     _words[ranNum].HideAWord();
+                    if (indexWords == 8)
+                    {
+                        break;
+                    }
                 }
             }
-            break;
+
         }
 
     }
