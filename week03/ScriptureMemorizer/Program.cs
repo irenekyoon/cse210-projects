@@ -13,16 +13,15 @@ class Program
         string ref2 = reference2.GetDisplayVerses();
         Console.WriteLine(ref2);
         string scrip2 = scripture2.GetDisplayText();
-        Console.Write(scrip2);
-      
-        Console.WriteLine();
+        Console.Write(scripture2.GetDisplayText());
+
         Console.WriteLine("Press Enter to continue or type 'quit' to finish.");
 
         while (memorize != "quit")
         {
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("Inside loop");
+          
             scripture2.HideRandomWords(3);
 
             Console.WriteLine("Press Enter to continue or type 'quit' to finish.");
@@ -35,5 +34,3 @@ class Program
         Console.WriteLine("Thank you. The End");
     }
 }
-
-
