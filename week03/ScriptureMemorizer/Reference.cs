@@ -22,7 +22,6 @@ public class Reference
         _endVerse = endVerse;
     }
 
-
     public string GetDisplayOneVerse()
     {
         string refString = $"{_book} {_chapter}:{_verse}";
@@ -34,5 +33,4 @@ public class Reference
         string refString = $"{_book} {_chapter}:{_verse}-{_endVerse}";
         return refString;
     }
-
 }

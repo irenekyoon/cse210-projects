@@ -23,8 +23,13 @@ public class Word
     public void HideAWord()
     {
         IsHidden();
-        _text = "_____";
-
+        string text = "";
+        for (int i = 0; i < _text.Length; i++)
+        {
+            text += "_";
+        }
+        text = text + " ";
+        _text = text;
     }
 
     public void ShowAWord()

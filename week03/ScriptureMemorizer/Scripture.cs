@@ -1,17 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 
 public class Scripture
 {
     private Reference _reference;
+    //private File _filename;
     private List<Word> _words = new List<Word>();
 
-    public Scripture(Reference reference, string text)
+    public Scripture(Reference reference, File filename)
     {
         _reference = reference;
-        string textString = text;
-
+        //_filename = filename;
+        File file = new File("scripture.txt");
+        string verse = file.loadScripture();
+        string textString = verse;
         String[] splitText = textString.Split(' ');
 
         foreach (string w in splitText)
@@ -23,7 +25,6 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
     {
         string displayVerse = "";
-        int hide = 0;
         int numHide = numberToHide;
         List<int> ranList = new List<int>();
         Random random = new Random();
@@ -33,16 +34,15 @@ public class Scripture
             int indexRandom = random.Next(0, _words.Count);
             ranList.Add(indexRandom);
             _words[indexRandom].HideAWord();
-            
-         }
+
+        }
         foreach (Word w in _words)
         {
             displayVerse += w.GetDisplayText() + " ";
-        
         }
         Console.WriteLine(displayVerse);
+        IsCompletelyHidden();
     }
-
     public string GetDisplayText()
     {
         // int indexRandom = 2;
@@ -54,30 +54,11 @@ public class Scripture
             displayVerse += w.GetDisplayText() + " ";
         }
         Console.WriteLine("");
-        //HideRandomWords(2);
-
-        // foreach (Word w in _words)
-        // {
-        //     displayVerse += w.GetDisplayText() + " ";
-        //     indexScripture = indexScripture + 1;
-        //     do
-        //         if (_words[indexScripture] == _words[indexRandom])
-        //         {
-        //             _words[indexScripture].HideAWord();
-        //         }
-        //     while (indexScripture < _words.Count);
-        //     indexScripture = 0;
-
-        // }
         return displayVerse;
     }
 
     public bool IsCompletelyHidden()
     {
-        foreach (Word w in _words)
-        {
-            //is w hidden? if so and all are hidden, 
-        }
-        return true;
+        return false;
     }
 }
