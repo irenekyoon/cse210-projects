@@ -22,69 +22,22 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+        string displayVerse = "";
         int numHide = numberToHide;
+        List<int> ranList = new List<int>();
         Random random = new Random();
-        //int indexScripture = 0;
 
-        int indexRandom = random.Next(0, _words.Count);
         for (int i = 1; i <= numHide; i++)
         {
+            int indexRandom = random.Next(0, _words.Count);
+            ranList.Add(indexRandom);
             _words[indexRandom].HideAWord();
         }
-
-
-        // foreach (Word word in _words)
-        // {
-        //     do
-        //     {
-        //         if (indexScripture )
-        //         indexScripture = indexScripture + 1;
-        //     }
-        //     while (indexScripture > _words.Count);
-
-        // }
-
-
-        // int numHide = numberToHide;
-        // List<int> ranList = new List<int>();
-        // Random random = new Random();
-        // int indexWords = 0;
-        // foreach (Word w in _words)
-        // {
-        //     for (int i = 1; i <= numHide; i++)
-        //     {
-        //         int ranNum = random.Next(0, _words.Count);
-        //         if (_words[ranNum] != _words[indexWords])
-        //         {
-        //             _words[indexWords].ShowAWord();
-
-        //             if (indexWords < _words.Count)
-        //             {
-        //                 if (indexWords == _words.Count - 1)
-        //                 {
-        //                     indexWords = 0;
-        //                     break;
-        //                 }
-        //                 indexWords = indexWords + 1;
-        //             }
-        //         }
-        //         else if (_words[ranNum] == _words[indexWords])
-        //         {
-        //             _words[ranNum].HideAWord();
-        //             if (indexWords < _words.Count)
-        //             {
-        //                 if (indexWords == _words.Count - 1)
-        //                 {
-        //                     indexWords = 0;
-        //                     break;
-        //                 }
-        //                 indexWords = indexWords + 1;
-        //             }
-        //             break;
-        //         }
-        //         //break;
-        //     }
-        // }
+        foreach (Word w in _words)
+        {
+            displayVerse += w.GetDisplayText() + " ";
+        }
+        Console.WriteLine(displayVerse);
     }
 
     public string GetDisplayText()
@@ -97,7 +50,8 @@ public class Scripture
         {
             displayVerse += w.GetDisplayText() + " ";
         }
-        HideRandomWords(2);
+        Console.WriteLine("");
+        //HideRandomWords(2);
 
         // foreach (Word w in _words)
         // {
