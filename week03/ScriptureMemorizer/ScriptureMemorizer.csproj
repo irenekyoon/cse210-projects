@@ -9,7 +9,7 @@
   </PropertyGroup>
   
 <ItemGroup Condition="'$(Configureation)' == 'Debug'">
-  <None Update="foo.txt" CopyToOutputDirectory="PreserveNewest" />
+  <None Update="scripture.txt" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
