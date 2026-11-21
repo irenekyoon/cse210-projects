@@ -10,12 +10,12 @@ class Program
         Scripture scripture2 = new Scripture(reference2, "In every thing give thanks: Quench not the Spirit.");
 
         string ref2 = reference2.GetDisplayVerses();
-        Console.WriteLine(ref2);
+        Console.Write(ref2);
         string scrip2 = scripture2.GetDisplayText();
-        Console.Write(scripture2.GetDisplayText());
+        Console.WriteLine(scrip2);
 
         Console.WriteLine("Press Enter to continue or type 'quit' to finish.");
-        
+
         while (memorize != "quit")
         {
             Console.ReadLine();

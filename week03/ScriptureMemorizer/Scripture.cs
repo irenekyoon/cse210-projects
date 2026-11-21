@@ -23,6 +23,7 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
     {
         string displayVerse = "";
+        int hide = 0;
         int numHide = numberToHide;
         List<int> ranList = new List<int>();
         Random random = new Random();
@@ -32,10 +33,12 @@ public class Scripture
             int indexRandom = random.Next(0, _words.Count);
             ranList.Add(indexRandom);
             _words[indexRandom].HideAWord();
-        }
+            
+         }
         foreach (Word w in _words)
         {
             displayVerse += w.GetDisplayText() + " ";
+        
         }
         Console.WriteLine(displayVerse);
     }

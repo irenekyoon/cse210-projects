@@ -27,7 +27,6 @@ public class Word
 
     }
 
-
     public void ShowAWord()
     {
         Console.WriteLine(_text);
