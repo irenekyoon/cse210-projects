@@ -23,7 +23,8 @@ public class Word
     public void HideAWord()
     {
         IsHidden();
-        Console.WriteLine("_");
+        _text = "_____";
+
     }
 
 

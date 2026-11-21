@@ -9,7 +9,6 @@ class Program
         Reference reference2 = new Reference("1 Thessalonians", 5, 18, 19);
         Scripture scripture2 = new Scripture(reference2, "In every thing give thanks: Quench not the Spirit.");
 
-        Console.WriteLine("Outside loop");
         string ref2 = reference2.GetDisplayVerses();
         Console.WriteLine(ref2);
         string scrip2 = scripture2.GetDisplayText();
@@ -21,7 +20,7 @@ class Program
         {
             Console.ReadLine();
             Console.Clear();
-            scripture2.HideRandomWords(3);
+            //scripture2.HideRandomWords(3);
 
             Console.WriteLine("Press Enter to continue or type 'quit' to finish.");
 
