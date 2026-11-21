@@ -4,13 +4,11 @@ using System.Collections.Generic;
 public class Scripture
 {
     private Reference _reference;
-    //private File _filename;
     private List<Word> _words = new List<Word>();
 
     public Scripture(Reference reference, File filename)
     {
         _reference = reference;
-        //_filename = filename;
         File file = new File("scripture.txt");
         string verse = file.loadScripture();
         string textString = verse;
