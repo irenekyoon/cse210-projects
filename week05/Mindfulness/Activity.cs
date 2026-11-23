@@ -79,24 +79,24 @@ public class Activity
     public void ShowCountDown()
     {
         //int seconds = 0;
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_duration);
+        // DateTime startTime = DateTime.Now;
+        // DateTime endTime = startTime.AddSeconds(_duration);
 
-        int j = 0;
+        // int j = 0;
 
-        while (DateTime.Now < endTime)
-        {
-            Console.Write(".");
-            Thread.Sleep(1000);
-            j++;
-        }
-
-        // for (int i = 5; i > 0; i--)
+        // while (DateTime.Now < endTime)
         // {
-        //     Console.Write(i);
+        //     Console.Write(".");
         //     Thread.Sleep(1000);
-        //     Console.Write("\b \b");
+        //     j++;
         // }
+
+        for (int i = 5; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
 
     }
 }
