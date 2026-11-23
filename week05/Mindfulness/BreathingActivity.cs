@@ -13,11 +13,8 @@ public class BreathingActivity : Activity
 
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(GetDuration());
-        //Console.WriteLine($"startTime: {startTime}");
-        //Console.WriteLine($"endTime: {endTime}");
-        DateTime currentTime = DateTime.Now;
-        //Console.WriteLine($"currentTime: {currentTime}");
-        while (currentTime < endTime)
+
+        while (DateTime.Now < endTime)
         {
             Console.Write("Breathe in...");
             for (int i = 4; i > 0; i--)
