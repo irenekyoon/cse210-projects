@@ -11,6 +11,7 @@ public class WritingAssignment : Assignment
 
     public string GetWritingInformation()
     {
-        return $"{GetTopic()} by {GetStudentName()}";
+        return $"{_title} by {GetStudentName()}"; // or string studentName = GetStudentName() 
+        // and use this in the return line: $"{_title} by {studentName}"
     }
 }

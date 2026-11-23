@@ -4,22 +4,42 @@ class Program
 {
     static void Main(string[] args)
     {
+        // code for Flower
+        Rose rose = new Rose("pink", 5);
+        Console.WriteLine(rose.Describe());
+        Flower f = rose;
+        Console.WriteLine(f.Describe());
+
+        Rose rose2 = new Rose("yellow", 2);
+        //Console.WriteLine(rose2.GetColor());
+        Console.WriteLine(rose2.Describe());
+        Console.WriteLine();
+
+        List<Flower> flowers = new List<Flower>();
+        flowers.Add(new Rose("white", 4)); // 'override' will give the description of thorns. 'new' won't
+        flowers.Add(new Flower("purple"));
+        foreach (Flower flower in flowers)
+        {
+            Console.WriteLine(flower.Describe());
+        }
+
         // code for Fraction2
 
-        Fraction fraction = new Fraction(5, 4);
-        try
-        {
-            Console.WriteLine(fraction.GetFractionString());
-            int bottom = fraction.GetBottom();
-            Console.WriteLine(bottom);
-            fraction.SetBottom(0);
-            Console.WriteLine($"First fraction string: {fraction.GetFractionString()}");
-        }
-        catch (ArgumentException e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        Console.WriteLine($"Second fraction string: {fraction.GetFractionString()}");
+        // Fraction fraction = new Fraction(5, 4);
+        // try
+        // {
+        //     Console.WriteLine(fraction.GetFractionString());
+        //     int bottom = fraction.GetBottom();
+        //     Console.WriteLine(bottom);
+        //     fraction.SetBottom(0);
+        //     Console.WriteLine($"First fraction string: {fraction.GetFractionString()}");
+        // }
+        // catch (ArgumentException e)
+        // {
+        //     Console.WriteLine(e.Message);
+        // }
+        // Console.WriteLine($"Second fraction string: {fraction.GetFractionString()}");
+
         // // Fraction fraction = new Fraction();
         // // Fraction fraction2 = new Fraction(5);
         // // Fraction fraction3 = new Fraction(3, 5);
