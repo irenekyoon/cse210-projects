@@ -6,7 +6,6 @@ public class Order
     private Customer _customer = new Customer();
 
     private List<Product> _products = new List<Product>();
-    //private Product _product = new Product();
    
     private double _total = 0;
 
