@@ -30,8 +30,8 @@ class Program
         video1._comments.Add(com3Vid1);
         video1._comments.Add(com4Vid1);
 
-        video1.DisplayVideo();
-        Console.WriteLine();
+        //video1.DisplayVideo();
+        //Console.WriteLine();
 
         Video video2 = new Video();
         video2._title = "Think Celestial T-Shirt";
@@ -59,8 +59,8 @@ class Program
         video2._comments.Add(com3Vid2);
         video2._comments.Add(com4Vid2);
 
-        video2.DisplayVideo();
-        Console.WriteLine();
+        //video2.DisplayVideo();
+        //Console.WriteLine();
 
         Video video3 = new Video();
         video3._title = "Print of Seoul Korea Temple";
@@ -88,8 +88,8 @@ class Program
         video3._comments.Add(com3Vid3);
         video3._comments.Add(com4Vid3);
 
-        video3.DisplayVideo();
-        Console.WriteLine();
+        //video3.DisplayVideo();
+        //Console.WriteLine();
 
         Video video4 = new Video();
         video4._title = "Temple Coloring Book App";
@@ -117,7 +117,20 @@ class Program
         video4._comments.Add(com3Vid4);
         video4._comments.Add(com4Vid4);
 
-        video4.DisplayVideo();
-        Console.WriteLine();
+        //video4.DisplayVideo();
+        //Console.WriteLine();
+
+        List<Video> youtubeVideos = new List<Video>();
+        youtubeVideos.Add(video1);
+        youtubeVideos.Add(video2);
+        youtubeVideos.Add(video3);
+        youtubeVideos.Add(video4);
+        Console.WriteLine("YoutubeVideo list");
+        foreach(Video v in youtubeVideos)
+        {
+            v.DisplayVideo();
+            Console.WriteLine();
+        }
+
     }
 }
