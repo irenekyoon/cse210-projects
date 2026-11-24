@@ -22,16 +22,15 @@ public class Address
 
     public string GetCountry()
     {
-        string country = "";
         if (_country == "USA")
         {
-            country = "USA";
+            _country = "USA";
         }
         else
         {
-            country = "other";
+            _country = "other";
         }
-        return country;
+        return _country;
     }
     public string GetAddress()
     {

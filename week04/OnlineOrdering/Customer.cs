@@ -1,5 +1,4 @@
 using System;
-using System.Net.Security;
 
 public class Customer
 {
@@ -10,9 +9,9 @@ public class Customer
     // {
 
     // }
-   public Customer()
-     {
-        
+    public Customer()
+    {
+
     }
     public Customer(string name, Address address)
     {
@@ -25,11 +24,10 @@ public class Customer
         Console.WriteLine(_name);
         return _name;
     }
-
+   
     public string GetLocation()
     {
         string location = _address.GetCountry();
-
         return location;
     }
 

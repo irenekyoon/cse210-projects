@@ -27,26 +27,25 @@ public class Product
         return _prodId;
     }
 
+    public double GetPrice()
+    {
+        return _price;
+    }
+
+    public int GetQuantity()
+    {
+        return _quantity;
+    }
     public List<Product> GetList()
     {
-
         Console.WriteLine(_products);
         return _products;
-
     }
 
-    public double GetSubtotal()
+    public double CalculateCost()
     {
-        double subtotal = 0.00;
-        foreach (Product p in _products)
-        {
-            double itemCost = _price * _quantity;
-            subtotal = subtotal + itemCost;
-            Console.WriteLine(subtotal);
-        }
-        return subtotal;
+        double itemCost = 0.00;
+        itemCost = _price * _quantity;
+        return itemCost;
     }
-
-
-
 }
