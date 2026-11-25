@@ -4,24 +4,40 @@ class Program
 {
     static void Main(string[] args)
     {
-        // code for Flower
-        Rose rose = new Rose("pink", 5);
-        Console.WriteLine(rose.Describe());
-        Flower f = rose;
-        Console.WriteLine(f.Describe());
+        // code for Vehicle
+        Console.WriteLine("Learning about base dot, virtual/override, and base dot inside override");
+        List<Vehicle> vehicles = new List<Vehicle>();
+        Bicycle bike = new Bicycle("Trail Bike", 30);
+        Truck truck = new Truck("Hauler", 90, 5000);
+        Vehicle vehicle = new Vehicle("Generic", 50);
+        vehicles.Add(bike);
+        vehicles.Add(truck);
+        vehicles.Add(vehicle);
 
-        Rose rose2 = new Rose("yellow", 2);
-        //Console.WriteLine(rose2.GetColor());
-        Console.WriteLine(rose2.Describe());
-        Console.WriteLine();
-
-        List<Flower> flowers = new List<Flower>();
-        flowers.Add(new Rose("white", 4)); // 'override' will give the description of thorns. 'new' won't
-        flowers.Add(new Flower("purple"));
-        foreach (Flower flower in flowers)
+        foreach (Vehicle v in vehicles)
         {
-            Console.WriteLine(flower.Describe());
+            Console.WriteLine(v.Describe());
         }
+        Console.WriteLine(bike.ParentVersion());
+        
+        // code for Flower
+        // Rose rose = new Rose("pink", 5);
+        // Console.WriteLine(rose.Describe());
+        // Flower f = rose;
+        // Console.WriteLine(f.Describe());
+
+        // Rose rose2 = new Rose("yellow", 2);
+        // //Console.WriteLine(rose2.GetColor());
+        // Console.WriteLine(rose2.Describe());
+        // Console.WriteLine();
+
+        // List<Flower> flowers = new List<Flower>();
+        // flowers.Add(new Rose("white", 4)); // 'override' will give the description of thorns. 'new' won't
+        // flowers.Add(new Flower("purple"));
+        // foreach (Flower flower in flowers)
+        // {
+        //     Console.WriteLine(flower.Describe());
+        // }
 
         // code for Fraction2
 
