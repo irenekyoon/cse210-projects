@@ -1,57 +1,47 @@
 using System;
-using System.Numerics;
+using System.Collections.Generic;
 
 public class ListingActivity : Activity
-
 {
+    private List<string> _prompts = new List<string>() { "Why is it good to be alive at this moment in time?", "What blessings have you received from reading the Book of Mormon?", "What blessings have you experienced from Family History and Temple work?", "Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?" };
     private int _count = 0;
-    private List<string> _prompts = new List<string>() { "Who are people that you appreciate?", "What are personal strengths of yours?", "Who are people that you have helped this week?", "When have you felt the Holy Ghost this month?", "Who are some of your personal heroes?" };
-
     public ListingActivity(string name, string description) : base(name, description)
     {
 
     }
 
-    public void GetRandomPrompt()
+    public void GuideListing()
+    {
+        DisplayIntroMessage();
+        Console.WriteLine();
+        Console.WriteLine("List as many responses you can to the following prompt:");
+        Console.WriteLine();
+        Console.WriteLine($"--- {GetRandomPrompt()} ---");
+        Console.Write("You may begin in:");
+        DisplayCountdown();
+        GetRandomPrompt();
+        GetUserList();
+        DisplayEndMessage();
+    }
+
+    public string GetRandomPrompt()
     {
         Random randomGenerator = new Random();
-        int number = randomGenerator.Next(0, 4);
-        Console.WriteLine($"-- {_prompts[number]} --");
+        int number = randomGenerator.Next(0, 7);
+
+        return _prompts[number];
     }
 
-    public List<string> GetListFromUser()
+    public void GetUserList()
     {
-        List<string> userList = new List<string>();
-
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(GetDuration());
-
-        while (DateTime.Now < endTime)
+        DateTime timeStart = DateTime.Now;
+        DateTime timeStop = timeStart.AddSeconds(GetDuration()); 
+        while (DateTime.Now < timeStop)
         {
-            Console.Write("< ");
-            string userResponse = (Console.ReadLine());
-            userList.Add(userResponse);
+            Console.Write("> ");
+            Console.ReadLine();
             _count += 1;
         }
-
-        return userList;
-    }
-    public void Run()
-    {
-        DisplayStartingMessage();
-        Console.WriteLine("List as many responses you can to the following prompt:");
-        GetRandomPrompt();
-        Console.WriteLine("You may begin in:");
-        for (int i = 5; i >5; i--)
-        {
-            Console.Write(i);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
-        }
-        ShowCountDown();
-        Console.WriteLine();
-        GetListFromUser();
         Console.WriteLine($"You listed {_count} items!");
-        DisplayEndingMessage();
     }
 }

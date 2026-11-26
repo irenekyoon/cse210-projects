@@ -1,7 +1,4 @@
 using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
 public class Activity
 {
     private string _name;
@@ -21,54 +18,45 @@ public class Activity
 
     public string GetDescription()
     {
-        return _name;
+        return _description;
     }
-
     public int GetDuration()
     {
         return _duration;
     }
-
-    public void DisplayStartingMessage()
+    public void DisplayIntroMessage()
     {
-        Console.WriteLine($"Welcome to the {_name}.");
-
+        Console.WriteLine($"Welcome to the {_name} Activity.");
+        Console.WriteLine();
         Console.WriteLine($"This activity will help you {_description}");
-
-        Console.WriteLine($"How long, in seconds, would you like for your session?");
-        string durationString = Console.ReadLine();
-        _duration = int.Parse(durationString);
-
+        Console.WriteLine();
+        Console.WriteLine("How long, in seconds, would you like for your session?");
+        string durString = Console.ReadLine();
+        _duration = int.Parse(durString);
         Console.Clear();
-
-        Console.Write("Get ready...");
-        ShowSpinner();
-        Console.WriteLine();
+        Console.WriteLine("Get ready...");
+        DisplaySpinner();
     }
 
-    public void DisplayEndingMessage()
+    public void DisplayEndMessage()
     {
-        Console.Write("Well done!");
-        ShowSpinner();
-        Console.WriteLine();
-        Console.WriteLine($"You have completed another {GetDuration()} seconds of the {_name}");
-        ShowSpinner();
+        Console.WriteLine("Well done!");
+        DisplaySpinner();
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity."); //_duration doesnt work
+        DisplaySpinner();
     }
 
-    public void ShowSpinner()
+    public void DisplaySpinner()
     {
         //int seconds = 0;
-        List<string> spinner = new List<string>();
-        spinner.Add("|");
-        spinner.Add("/");
-        spinner.Add("-");
-        spinner.Add("\\");
-        spinner.Add("|");
-        // spinner.Add("/");
-        // spinner.Add("-");
-        // spinner.Add("\\");
+        List<string> spinStrings = new List<string>();
+        spinStrings.Add("/");
+        spinStrings.Add("-");
+        spinStrings.Add("\\");
+        spinStrings.Add("|");
+        spinStrings.Add("/");
 
-        foreach (string s in spinner)
+        foreach (string s in spinStrings)
         {
             Console.Write(s);
             Thread.Sleep(1000);
@@ -76,27 +64,15 @@ public class Activity
         }
     }
 
-    public void ShowCountDown()
+    public void DisplayCountdown()
     {
-        //int seconds = 0;
-        // DateTime startTime = DateTime.Now;
-        // DateTime endTime = startTime.AddSeconds(_duration);
-
-        // int j = 0;
-
-        // while (DateTime.Now < endTime)
-        // {
-        //     Console.Write(".");
-        //     Thread.Sleep(1000);
-        //     j++;
-        // }
-
         for (int i = 5; i > 0; i--)
         {
             Console.Write(i);
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
-
+        Console.WriteLine();
     }
 }
+
